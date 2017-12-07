@@ -8,7 +8,7 @@ class GameManager
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
-    @question = Question.new
+
     @game_count = GAME_COUNT
   end
 
@@ -40,6 +40,7 @@ class GameManager
     while game_not_over?
       if(@player1.turn == true)
         puts new_turn
+        @question = Question.new
         puts "#{@player1.name}: #{@question.ask_question}"
         print "> "
         answer = gets.chomp.to_i
@@ -56,6 +57,7 @@ class GameManager
         @player2.turn = true
       else
         puts new_turn
+        @question = Question.new
         puts "#{@player2.name}: #{@question.ask_question}"
         print "> "
         answer = gets.chomp.to_i
