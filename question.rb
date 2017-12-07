@@ -1,60 +1,30 @@
 class Question
   attr_reader :answer
+
+
   def initialize
-    @leftOperand = 1 + rand(100)
-    @rightOperand = 1 + rand(100)
-    @answer = @leftOperand + @rightOperand
-  end
-
-  def gnerateAnswer
+    @leftOperand = 1 + rand(20)
+    @rightOperand = 1 + rand(20)
     @answer = @leftOperand + @rightOperand
   end
 
 
-  def operand
-    "+"
+  def ask_question
+    "What does #{@leftOperand} plus #{@rightOperand}? equal"
   end
 
 
-  def question_string
-    "What is #{leftOperand} + #{rightOperand}?"
-  end
-
-
-  def answer
-    @answer
-  end
-
-
-  def correct?(answer)
+  def correct_answer?(answer)
     @answer == answer
   end
 
 
+  def answer_correct
+    "YES! You are correct."
+  end
+
+
+  def answer_incorrect
+    "Seriously? NO!"
+  end
 end
-
-class AdditionQuestion < Question
-
-  def gnerateAnswer
-    @answer = @leftOperand + @rightOperand
-  end
-
-
-  def operand
-    "+"
-  end
-
-end
-
-
-class SubstractionQuestion < Quesetion
-  def gnerateAnswer
-    @answer = @leftOperand - @rightOperand
-  end
-
-
-  def operand
-    "-"
-  end
-
-
